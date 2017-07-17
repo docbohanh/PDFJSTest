@@ -33,24 +33,39 @@ class ViewController: UIViewController, WKUIDelegate {
   }
 
   func renderLocalPDF() {
-    let urlString = "Linear Regression Using R- An Introduction to Data Modeling"
+    //let urlString = "Linear Regression Using R- An Introduction to Data Modeling"
+    //let urlString = "viewer"
+    //let urlString = "generic/web/viewer"
+    //let urlString = "examples/helloworld/index"
+    let urlString = "build/generic/web/viewer"
 
-    if let filePath = Bundle.main.path(forResource: urlString, ofType: "pdf") {
+  //let filePath = Bundle.main.resourceURL?.appendingPathComponent("generic/web/viewer.html").path
+    //let filePath = Bundle.main.resourceURL?.appendingPathComponent("generic/web/Linear Regression Using R- An Introduction to Data Modeling.pdf").path
+    //let filePath = Bundle.main.resourceURL?.appendingPathComponent("generic/web/compressed.tracemonkey-pldi-09.pdf").path
+    // let filePath = Bundle.main.resourceURL?.appendingPathComponent("viewer.html").path
+    //let filePath = Bundle.main.resourceURL?.appendingPathComponent("examples/helloworld/index.html").path
+    let filePath = Bundle.main.resourceURL?.appendingPathComponent("build/generic/web/viewer.html").path
+  print("File exists: \(FileManager().fileExists(atPath: filePath!))")
+
+
+    //if let filePath = Bundle.main.path(forResource: urlString, ofType: "pdf") {
+    //if let filePath = Bundle.main.path(forResource: urlString, ofType: "html", inDirectory: "generic/web") {
+    if let filePath = Bundle.main.path(forResource: urlString, ofType: "html") {
       do {
         let myURL = URL(fileURLWithPath: filePath)
 
         let myRequest = URLRequest(url: myURL)
-        //webView.loadRequest(myRequest)  // to use with UIWebView
 
-        //let data =  try Data(contentsOf: myURL)
-        //webView.load(data, mimeType: "application/pdf", characterEncodingName:"", baseURL: myURL.deletingLastPathComponent())
-
-        
         webView.load(myRequest)
       }
-      
     }
+    else {
+      print("cannot find resource")
+    }
+
   }
+
+
 
   func renderServerPDF() {
     let urlString = "http://localhost:8888/web/viewer.html?file=%2Fexamples%2Fhelloworld%2FLinear%20Regression%20Using%20R-%20An%20Introduction%20to%20Data%20Modeling.pdf"

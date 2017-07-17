@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5288C49E1F1950C100203A33 /* generic in Resources */ = {isa = PBXBuildFile; fileRef = 5288C49D1F1950C100203A33 /* generic */; };
+		5288C4A21F197D6200203A33 /* build in Resources */ = {isa = PBXBuildFile; fileRef = 5288C4A11F197D6200203A33 /* build */; };
+		5288C4A41F197D8200203A33 /* examples in Resources */ = {isa = PBXBuildFile; fileRef = 5288C4A31F197D8200203A33 /* examples */; };
 		528B7B101F17BA3000A1590B /* Linear Regression Using R- An Introduction to Data Modeling.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 528B7B0F1F17BA3000A1590B /* Linear Regression Using R- An Introduction to Data Modeling.pdf */; };
 		52EE7E741F16AB2000429D5A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EE7E731F16AB2000429D5A /* WebKit.framework */; };
 		52F439D81F1585A20063DCF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F439D71F1585A20063DCF2 /* AppDelegate.swift */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5288C49D1F1950C100203A33 /* generic */ = {isa = PBXFileReference; lastKnownFileType = folder; path = generic; sourceTree = "<group>"; };
+		5288C4A11F197D6200203A33 /* build */ = {isa = PBXFileReference; lastKnownFileType = folder; path = build; sourceTree = "<group>"; };
+		5288C4A31F197D8200203A33 /* examples */ = {isa = PBXFileReference; lastKnownFileType = folder; path = examples; sourceTree = "<group>"; };
 		528B7B0F1F17BA3000A1590B /* Linear Regression Using R- An Introduction to Data Modeling.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Linear Regression Using R- An Introduction to Data Modeling.pdf"; sourceTree = "<group>"; };
 		52EE7E731F16AB2000429D5A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		52F439D41F1585A20063DCF2 /* PDFJSTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PDFJSTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,13 +74,16 @@
 		52F439D61F1585A20063DCF2 /* PDFJSTest */ = {
 			isa = PBXGroup;
 			children = (
+				5288C4A31F197D8200203A33 /* examples */,
+				5288C4A11F197D6200203A33 /* build */,
+				5288C49D1F1950C100203A33 /* generic */,
 				528B7B0F1F17BA3000A1590B /* Linear Regression Using R- An Introduction to Data Modeling.pdf */,
 				52F439D71F1585A20063DCF2 /* AppDelegate.swift */,
 				52F439D91F1585A20063DCF2 /* ViewController.swift */,
 				52F439DB1F1585A20063DCF2 /* Main.storyboard */,
 				52F439DE1F1585A20063DCF2 /* Assets.xcassets */,
-				52F439E01F1585A20063DCF2 /* LaunchScreen.storyboard */,
 				52F439E31F1585A20063DCF2 /* Info.plist */,
+				52F439E01F1585A20063DCF2 /* LaunchScreen.storyboard */,
 			);
 			path = PDFJSTest;
 			sourceTree = "<group>";
@@ -139,9 +148,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5288C49E1F1950C100203A33 /* generic in Resources */,
 				52F439E21F1585A20063DCF2 /* LaunchScreen.storyboard in Resources */,
 				528B7B101F17BA3000A1590B /* Linear Regression Using R- An Introduction to Data Modeling.pdf in Resources */,
+				5288C4A21F197D6200203A33 /* build in Resources */,
 				52F439DF1F1585A20063DCF2 /* Assets.xcassets in Resources */,
+				5288C4A41F197D8200203A33 /* examples in Resources */,
 				52F439DD1F1585A20063DCF2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
