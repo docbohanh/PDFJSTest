@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		529358B61F1D17B800A51163 /* build in Resources */ = {isa = PBXBuildFile; fileRef = 529358B51F1D17B800A51163 /* build */; };
 		529358B81F1D180F00A51163 /* web in Resources */ = {isa = PBXBuildFile; fileRef = 529358B71F1D180F00A51163 /* web */; };
+		529358BA1F1D5AD500A51163 /* pdf.js-dist in Resources */ = {isa = PBXBuildFile; fileRef = 529358B91F1D5AD500A51163 /* pdf.js-dist */; };
 		52EE7E741F16AB2000429D5A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EE7E731F16AB2000429D5A /* WebKit.framework */; };
 		52F439D81F1585A20063DCF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F439D71F1585A20063DCF2 /* AppDelegate.swift */; };
 		52F439DA1F1585A20063DCF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F439D91F1585A20063DCF2 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		529358B51F1D17B800A51163 /* build */ = {isa = PBXFileReference; lastKnownFileType = folder; path = build; sourceTree = "<group>"; };
 		529358B71F1D180F00A51163 /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = web; sourceTree = "<group>"; };
+		529358B91F1D5AD500A51163 /* pdf.js-dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "pdf.js-dist"; sourceTree = "<group>"; };
 		52EE7E731F16AB2000429D5A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		52F439D41F1585A20063DCF2 /* PDFJSTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PDFJSTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F439D71F1585A20063DCF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 		52F439D61F1585A20063DCF2 /* PDFJSTest */ = {
 			isa = PBXGroup;
 			children = (
+				529358B91F1D5AD500A51163 /* pdf.js-dist */,
 				529358B71F1D180F00A51163 /* web */,
 				529358B51F1D17B800A51163 /* build */,
 				52F439D71F1585A20063DCF2 /* AppDelegate.swift */,
@@ -145,6 +148,7 @@
 				529358B61F1D17B800A51163 /* build in Resources */,
 				52F439E21F1585A20063DCF2 /* LaunchScreen.storyboard in Resources */,
 				529358B81F1D180F00A51163 /* web in Resources */,
+				529358BA1F1D5AD500A51163 /* pdf.js-dist in Resources */,
 				52F439DF1F1585A20063DCF2 /* Assets.xcassets in Resources */,
 				52F439DD1F1585A20063DCF2 /* Main.storyboard in Resources */,
 			);
