@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5260D07C1F279E390050E849 /* compressed.tracemonkey-pldi-09.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5260D07B1F279E390050E849 /* compressed.tracemonkey-pldi-09.pdf */; };
 		529358B61F1D17B800A51163 /* build in Resources */ = {isa = PBXBuildFile; fileRef = 529358B51F1D17B800A51163 /* build */; };
 		529358B81F1D180F00A51163 /* web in Resources */ = {isa = PBXBuildFile; fileRef = 529358B71F1D180F00A51163 /* web */; };
 		529358BA1F1D5AD500A51163 /* pdf.js-dist in Resources */ = {isa = PBXBuildFile; fileRef = 529358B91F1D5AD500A51163 /* pdf.js-dist */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5260D07B1F279E390050E849 /* compressed.tracemonkey-pldi-09.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "compressed.tracemonkey-pldi-09.pdf"; path = "web/compressed.tracemonkey-pldi-09.pdf"; sourceTree = "<group>"; };
 		529358B51F1D17B800A51163 /* build */ = {isa = PBXFileReference; lastKnownFileType = folder; path = build; sourceTree = "<group>"; };
 		529358B71F1D180F00A51163 /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = web; sourceTree = "<group>"; };
 		529358B91F1D5AD500A51163 /* pdf.js-dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "pdf.js-dist"; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 		52F439D61F1585A20063DCF2 /* PDFJSTest */ = {
 			isa = PBXGroup;
 			children = (
+				5260D07B1F279E390050E849 /* compressed.tracemonkey-pldi-09.pdf */,
 				529358B91F1D5AD500A51163 /* pdf.js-dist */,
 				529358B71F1D180F00A51163 /* web */,
 				529358B51F1D17B800A51163 /* build */,
@@ -149,6 +152,7 @@
 				52F439E21F1585A20063DCF2 /* LaunchScreen.storyboard in Resources */,
 				529358B81F1D180F00A51163 /* web in Resources */,
 				529358BA1F1D5AD500A51163 /* pdf.js-dist in Resources */,
+				5260D07C1F279E390050E849 /* compressed.tracemonkey-pldi-09.pdf in Resources */,
 				52F439DF1F1585A20063DCF2 /* Assets.xcassets in Resources */,
 				52F439DD1F1585A20063DCF2 /* Main.storyboard in Resources */,
 			);
