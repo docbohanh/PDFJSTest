@@ -47,12 +47,13 @@ class ViewController: UIViewController, WKUIDelegate {
     }
 
     // then, load the PDF into the viewer
-    let timeDelay = 0.5 // in seconds
+    let timeDelay = 1.0 // in seconds
     Timer.scheduledTimer(timeInterval: timeDelay, target: self, selector: #selector(self.sendPDFData), userInfo: nil, repeats: false)
   }
 
   @objc func sendPDFData() {
-    let urlString = "compressed.tracemonkey-pldi-09"
+    //let urlString = "compressed.tracemonkey-pldi-09"
+    let urlString = "Linear Regression Using R- An Introduction to Data Modeling"
 
     if let filePath = Bundle.main.path(forResource: urlString, ofType: "pdf") {
       print("File \(urlString).pdf exists: \(FileManager().fileExists(atPath: filePath))")
@@ -89,6 +90,6 @@ class ViewController: UIViewController, WKUIDelegate {
       webView.load(myRequest)
     }
   }
-  
+
 }
 
