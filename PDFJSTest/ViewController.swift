@@ -23,10 +23,17 @@ class ViewController: UIViewController, WKUIDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    renderLocalPDF()
+    // first, load the PDF Viewer
+    loadPDFViewer()
+
+    // then, grab the PDF from the server and render in the viewer
+    renderServerPDF()
+
+    // or grab the PDF locally in the bundle and render in the viewer
+    //renderLocalPDF()
   }
 
-  func renderLocalPDF() {
+  func loadPDFViewer() {
     let urlString = "pdf.js-dist/web/viewer"
 
     let filePath = Bundle.main.resourceURL?.appendingPathComponent("pdf.js-dist/web/viewer.html").path
@@ -45,13 +52,87 @@ class ViewController: UIViewController, WKUIDelegate {
     else {
       print("cannot find resource")
     }
-
-    // then, load the PDF into the viewer
-    let timeDelay = 1.0 // in seconds
-    Timer.scheduledTimer(timeInterval: timeDelay, target: self, selector: #selector(self.sendPDFData), userInfo: nil, repeats: false)
   }
 
-  @objc func sendPDFData() {
+
+  func renderServerPDF() {
+    downloadFile()
+  }
+
+  func downloadFile() {
+
+    // Create destination URL
+    let documentsUrl:URL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first as URL!
+    let destinationFileUrl = documentsUrl.appendingPathComponent("download.pdf")
+
+    //Create URL to the source file you want to download
+    let fileURL = URL(string: "http://open.minitex.org/1.pdf")
+
+    let sessionConfig = URLSessionConfiguration.default
+    let session = URLSession(configuration: sessionConfig)
+
+    let request = URLRequest(url:fileURL!)
+
+    let task = session.downloadTask(with: request) { (tempLocalUrl, response, error) in
+      if let tempLocalUrl = tempLocalUrl, error == nil {
+        // Success
+        if let statusCode = (response as? HTTPURLResponse)?.statusCode {
+          print("Successfully downloaded. Status code: \(statusCode)")
+          self.storePDFLocally()
+        }
+
+        do {
+          try FileManager.default.copyItem(at: tempLocalUrl, to: destinationFileUrl)
+        } catch (let writeError) {
+          print("Error creating a file \(destinationFileUrl) : \(writeError)")
+        }
+
+      } else {
+        print("Error took place while downloading a file.");
+      }
+    }
+
+    task.resume()
+  }
+
+  func storePDFLocally() {
+
+    let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
+    let nsUserDomainMask    = FileManager.SearchPathDomainMask.userDomainMask
+    let paths               = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
+    if let dirPath          = paths.first
+    {
+      let myURL = URL(fileURLWithPath: dirPath).appendingPathComponent("download.pdf")
+      openPDFInViewer(myURL: myURL)
+    }
+  }
+
+  func openPDFInViewer(myURL: URL) {
+    let pdf = NSData(contentsOf: myURL)
+
+    //print(pdf?.description ?? "No pdf values here")
+    //print("---------------------------------------")
+    let length = pdf?.length
+    var myArray = [UInt8](repeating: 0, count: length!)
+    pdf?.getBytes(&myArray, length: length!)
+
+    //print(myArray.description)
+
+    webView?.evaluateJavaScript("PDFViewerApplication.open(new Uint8Array(\(myArray)))", completionHandler: { result, error in
+      print("Completed Javascript evaluation.")
+      print("Result: \(String(describing: result))")
+      print("Error: \(String(describing: error))")
+    })
+  }
+
+  func renderLocalPDF() {
+
+    // load the PDF into the viewer after a delay
+    let timeDelay = 1.0 // in seconds
+    Timer.scheduledTimer(timeInterval: timeDelay, target: self, selector: #selector(self.getLocalPDF), userInfo: nil, repeats: false)
+  }
+
+  @objc func getLocalPDF() {
     //let urlString = "compressed.tracemonkey-pldi-09"
     let urlString = "Linear Regression Using R- An Introduction to Data Modeling"
 
@@ -59,35 +140,10 @@ class ViewController: UIViewController, WKUIDelegate {
       print("File \(urlString).pdf exists: \(FileManager().fileExists(atPath: filePath))")
 
       let myURL = URL(fileURLWithPath: filePath)
-      let pdf = NSData(contentsOf: myURL)
-
-      //print(pdf?.description ?? "No pdf values here")
-      //print("---------------------------------------")
-      let length = pdf?.length
-      var myArray = [UInt8](repeating: 0, count: length!)
-      pdf?.getBytes(&myArray, length: length!)
-
-      //print(myArray.description)
-
-      webView?.evaluateJavaScript("PDFViewerApplication.open(new Uint8Array(\(myArray)))", completionHandler: { result, error in
-        print("Completed Javascript evaluation.")
-        print("Result: \(String(describing: result))")
-        print("Error: \(String(describing: error))")
-      })
+      openPDFInViewer(myURL: myURL)
     }
     else {
       print("File \(urlString) doesn't exist")
-    }
-  }
-
-  func renderServerPDF() {
-    let urlString = "http://localhost:8888/web/viewer.html?file=%2Fexamples%2Fhelloworld%2FLinear%20Regression%20Using%20R-%20An%20Introduction%20to%20Data%20Modeling.pdf"
-
-    if let myURL = URL(string: urlString) {
-
-      let myRequest = URLRequest(url: myURL)
-
-      webView.load(myRequest)
     }
   }
 
