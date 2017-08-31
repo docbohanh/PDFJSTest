@@ -47,10 +47,76 @@ class ViewController: UIViewController, WKUIDelegate {
     }
 
     // then, load the PDF into the viewer
-    let timeDelay = 1.0 // in seconds
-    Timer.scheduledTimer(timeInterval: timeDelay, target: self, selector: #selector(self.sendPDFData), userInfo: nil, repeats: false)
+    // let timeDelay = 1.0 // in seconds
+    // Timer.scheduledTimer(timeInterval: timeDelay, target: self, selector: nil, userInfo: nil, repeats: false)
+    
+    downloadFile()
+    renderPDF()
+  }
+    
+  func downloadFile() {
+    
+    // Create destination URL
+    let documentsUrl:URL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first as URL!
+    let destinationFileUrl = documentsUrl.appendingPathComponent("download.pdf")
+    
+    //Create URL to the source file you want to download
+    let fileURL = URL(string: "http://open.minitex.org/1.pdf")
+    
+    let sessionConfig = URLSessionConfiguration.default
+    let session = URLSession(configuration: sessionConfig)
+    
+    let request = URLRequest(url:fileURL!)
+    
+    let task = session.downloadTask(with: request) { (tempLocalUrl, response, error) in
+        if let tempLocalUrl = tempLocalUrl, error == nil {
+            // Success
+            if let statusCode = (response as? HTTPURLResponse)?.statusCode {
+                print("Successfully downloaded. Status code: \(statusCode)")
+            }
+            
+            do {
+                try FileManager.default.copyItem(at: tempLocalUrl, to: destinationFileUrl)
+            } catch (let writeError) {
+                print("Error creating a file \(destinationFileUrl) : \(writeError)")
+            }
+            
+        } else {
+            print("Error took place while downloading a file.");
+        }
+    }
+    
+    task.resume()
+  }
+    
+    
+  func renderPDF() {
+    
+    let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
+    let nsUserDomainMask    = FileManager.SearchPathDomainMask.userDomainMask
+    let paths               = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
+    if let dirPath          = paths.first
+    {
+        let myURL = URL(fileURLWithPath: dirPath).appendingPathComponent("download.pdf")
+        let pdf = NSData(contentsOf: myURL)
+        
+        //print(pdf?.description ?? "No pdf values here")
+        //print("---------------------------------------")
+        let length = pdf?.length
+        var myArray = [UInt8](repeating: 0, count: length!)
+        pdf?.getBytes(&myArray, length: length!)
+        
+        //print(myArray.description)
+        
+        webView?.evaluateJavaScript("PDFViewerApplication.open(new Uint8Array(\(myArray)))", completionHandler: { result, error in
+            print("Completed Javascript evaluation.")
+            print("Result: \(String(describing: result))")
+            print("Error: \(String(describing: error))")
+        })
+    }
   }
 
+    
   @objc func sendPDFData() {
     //let urlString = "compressed.tracemonkey-pldi-09"
     let urlString = "Linear Regression Using R- An Introduction to Data Modeling"
