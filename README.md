@@ -17,7 +17,9 @@ To run the web app:
 At the command prompt, type:
 python -m SimpleHTTPServer
 
-For more details, go to: https://developer.mozilla.org/en-US/docs/Learn/Common_questions/set_up_a_local_testing_server
+For more details, go to:
+
+https://developer.mozilla.org/en-US/docs/Learn/Common_questions/set_up_a_local_testing_server
 
 3) In a Safari browser (you must use Safari as that comes closest to simulating WebKit in iOS), type:
 localhost:8000
@@ -25,10 +27,13 @@ localhost:8000
 The PDF Viewer and a default PDF loaded in the Viewer, should appear in the browser.
 
 For additional information about PDF.js, check out these links:
+
 https://github.com/mozilla/pdf.js/wiki/Frequently-Asked-Questions#faq-xhr
+
 https://mozilla.github.io/pdf.js/getting_started/
 
 The cross domain request question in FAQs will explain why we need to run a local web server to access a local PDF in the web app, as will the "Trying the Viewer" section on the Getting Started page.
 
 https://github.com/mozilla/pdf.js/wiki/Viewer-options
+
 This is helpful to understand different ways to work with the Viewer
