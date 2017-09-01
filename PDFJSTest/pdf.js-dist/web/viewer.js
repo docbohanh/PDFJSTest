@@ -1724,7 +1724,7 @@ var PDFViewerApplication = {
     eventBus.on('namedaction', webViewerNamedAction);
     eventBus.on('presentationmodechanged', webViewerPresentationModeChanged);
     eventBus.on('presentationmode', webViewerPresentationMode);
-    eventBus.on('openfile', webViewerOpenFile);
+    //eventBus.on('openfile', webViewerOpenFile);
     eventBus.on('print', webViewerPrint);
     eventBus.on('download', webViewerDownload);
     eventBus.on('firstpage', webViewerFirstPage);
