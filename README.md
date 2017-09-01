@@ -22,6 +22,7 @@ For more details, go to:
 https://developer.mozilla.org/en-US/docs/Learn/Common_questions/set_up_a_local_testing_server
 
 3) In a Safari browser (you must use Safari as that comes closest to simulating WebKit in iOS), type:
+
 localhost:8000
 
 The PDF Viewer and a default PDF loaded in the Viewer, should appear in the browser.
