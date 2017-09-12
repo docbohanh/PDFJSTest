@@ -1724,7 +1724,7 @@ var PDFViewerApplication = {
     eventBus.on('namedaction', webViewerNamedAction);
     eventBus.on('presentationmodechanged', webViewerPresentationModeChanged);
     eventBus.on('presentationmode', webViewerPresentationMode);
-    //eventBus.on('openfile', webViewerOpenFile);
+    eventBus.on('openfile', webViewerOpenFile);
     eventBus.on('print', webViewerPrint);
     eventBus.on('download', webViewerDownload);
     eventBus.on('firstpage', webViewerFirstPage);
@@ -9127,7 +9127,7 @@ var SecondaryToolbar = function () {
     this.containerHeight = null;
     this.previousContainerHeight = null;
     this.reset();
-    this._bindClickListeners();
+    //this._bindClickListeners(); // comment out to make the right drop down menu non-clickable
     this._bindCursorToolsListener(options);
     this.eventBus.on('resize', this._setMaxHeight.bind(this));
   }
