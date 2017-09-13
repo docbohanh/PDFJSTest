@@ -13,6 +13,37 @@ class ViewController: UIViewController, WKUIDelegate {
 
   var webView: WKWebView!
 
+  @IBAction func zoomOut(_ sender: Any) {
+    print("clicked on Zoom Out button!")
+
+    webView?.evaluateJavaScript("PDFViewerApplication.zoomOut()", completionHandler: { result, error in
+      print("Completed Javascript evaluation.")
+      print("Result: \(String(describing: result))")
+      print("Error: \(String(describing: error))")
+    })
+  }
+  
+  @IBAction func zoomIn(_ sender: Any) {
+    print("clicked on Zoom In button!")
+
+    webView?.evaluateJavaScript("PDFViewerApplication.zoomIn()", completionHandler: { result, error in
+      print("Completed Javascript evaluation.")
+      print("Result: \(String(describing: result))")
+      print("Error: \(String(describing: error))")
+    })
+  }
+
+  @IBAction func openSearch(_ sender: Any) {
+    print("clicked on Search button!")
+
+    webView?.evaluateJavaScript("PDFViewerApplication.findBar.toggle()", completionHandler: { result, error in
+      print("Completed Javascript evaluation.")
+      print("Result: \(String(describing: result))")
+      print("Error: \(String(describing: error))")
+    })
+  }
+
+
   override func loadView() {
     let webConfiguration = WKWebViewConfiguration()
     webView = WKWebView(frame: .zero, configuration: webConfiguration)
