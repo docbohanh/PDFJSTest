@@ -27,10 +27,10 @@ class ViewController: UIViewController, WKUIDelegate {
     loadPDFViewer()
 
     // then, grab the PDF from the server and render in the viewer
-    renderServerPDF()
+    //renderServerPDF()
 
     // or grab the PDF locally in the bundle and render in the viewer
-    //renderLocalPDF()
+    renderLocalPDF()
   }
 
   func loadPDFViewer() {
@@ -134,7 +134,9 @@ class ViewController: UIViewController, WKUIDelegate {
 
   @objc func getLocalPDF() {
     //let urlString = "compressed.tracemonkey-pldi-09"
-    let urlString = "Linear Regression Using R- An Introduction to Data Modeling"
+    //let urlString = "Linear Regression Using R- An Introduction to Data Modeling"
+    //let urlString = "NumberTheoryAndAlgebra"
+    let urlString = "FinancialAccounting"
 
     if let filePath = Bundle.main.path(forResource: urlString, ofType: "pdf") {
       print("File \(urlString).pdf exists: \(FileManager().fileExists(atPath: filePath))")

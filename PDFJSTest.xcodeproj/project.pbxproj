@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		520059BC1F702EEC009EAE49 /* NumberTheoryAndAlgebra.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 520059BA1F702EEC009EAE49 /* NumberTheoryAndAlgebra.pdf */; };
+		520059BD1F702EEC009EAE49 /* FinancialAccounting.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 520059BB1F702EEC009EAE49 /* FinancialAccounting.pdf */; };
 		5241C0A91F2926ED00381ED3 /* Linear Regression Using R- An Introduction to Data Modeling.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5241C0A81F2926ED00381ED3 /* Linear Regression Using R- An Introduction to Data Modeling.pdf */; };
 		5260D07C1F279E390050E849 /* compressed.tracemonkey-pldi-09.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5260D07B1F279E390050E849 /* compressed.tracemonkey-pldi-09.pdf */; };
 		529358B61F1D17B800A51163 /* build in Resources */ = {isa = PBXBuildFile; fileRef = 529358B51F1D17B800A51163 /* build */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		520059BA1F702EEC009EAE49 /* NumberTheoryAndAlgebra.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = NumberTheoryAndAlgebra.pdf; sourceTree = "<group>"; };
+		520059BB1F702EEC009EAE49 /* FinancialAccounting.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = FinancialAccounting.pdf; sourceTree = "<group>"; };
 		5241C0A81F2926ED00381ED3 /* Linear Regression Using R- An Introduction to Data Modeling.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Linear Regression Using R- An Introduction to Data Modeling.pdf"; sourceTree = "<group>"; };
 		5260D07B1F279E390050E849 /* compressed.tracemonkey-pldi-09.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "compressed.tracemonkey-pldi-09.pdf"; path = "web/compressed.tracemonkey-pldi-09.pdf"; sourceTree = "<group>"; };
 		529358B51F1D17B800A51163 /* build */ = {isa = PBXFileReference; lastKnownFileType = folder; path = build; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 		52F439D61F1585A20063DCF2 /* PDFJSTest */ = {
 			isa = PBXGroup;
 			children = (
+				520059BA1F702EEC009EAE49 /* NumberTheoryAndAlgebra.pdf */,
+				520059BB1F702EEC009EAE49 /* FinancialAccounting.pdf */,
 				5241C0A81F2926ED00381ED3 /* Linear Regression Using R- An Introduction to Data Modeling.pdf */,
 				5260D07B1F279E390050E849 /* compressed.tracemonkey-pldi-09.pdf */,
 				529358B91F1D5AD500A51163 /* pdf.js-dist */,
@@ -154,8 +160,10 @@
 				529358B61F1D17B800A51163 /* build in Resources */,
 				52F439E21F1585A20063DCF2 /* LaunchScreen.storyboard in Resources */,
 				529358B81F1D180F00A51163 /* web in Resources */,
+				520059BD1F702EEC009EAE49 /* FinancialAccounting.pdf in Resources */,
 				529358BA1F1D5AD500A51163 /* pdf.js-dist in Resources */,
 				5260D07C1F279E390050E849 /* compressed.tracemonkey-pldi-09.pdf in Resources */,
+				520059BC1F702EEC009EAE49 /* NumberTheoryAndAlgebra.pdf in Resources */,
 				5241C0A91F2926ED00381ED3 /* Linear Regression Using R- An Introduction to Data Modeling.pdf in Resources */,
 				52F439DF1F1585A20063DCF2 /* Assets.xcassets in Resources */,
 				52F439DD1F1585A20063DCF2 /* Main.storyboard in Resources */,
