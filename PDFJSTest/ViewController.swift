@@ -27,99 +27,37 @@ class ViewController: UIViewController, WKUIDelegate {
         loadPDFViewer()
         
         // then, grab the PDF from the server and render in the viewer
-        renderServerPDF()
+//        renderServerPDF()
         
         // or grab the PDF locally in the bundle and render in the viewer
-        //    renderLocalPDF()
+//            renderLocalPDF()
+        
+        let sv = UIBarButtonItem(title: "ServerPDF", style: .plain, target: self, action: #selector(self.renderServerPDF))
+        let lc = UIBarButtonItem(title: "LocalPDF", style: .plain, target: self, action: #selector(self.renderLocalPDF))
+        
+        navigationItem.leftBarButtonItem = sv
+        navigationItem.rightBarButtonItem = lc
     }
     
     func loadPDFViewer() {
-//        let urlString = "pdf.js-dist/web/viewer"
-        let urlString = "pdfjs/web/viewer"
+        let urlString = "pdf.js-dist/web/viewer"
         
         let filePath = Bundle.main.resourceURL?.appendingPathComponent("\(urlString).html").path
         print("File \(urlString).html exists: \(FileManager().fileExists(atPath: filePath!))")
         
         // first, load the PDF viewer
-        if let filePath = Bundle.main.path(forResource: urlString, ofType: "html") {
-            do {
-                let myURL = URL(fileURLWithPath: filePath)
-                
-                let myRequest = URLRequest(url: myURL)
-                
-                webView.load(myRequest)
-            }
-        }
-        else {
-            print("cannot find resource")
-        }
-    }
-    
-    
-    func renderServerPDF() {
-        downloadFile()
-    }
-    
-    func downloadFile() {
-        
-        // Create destination URL
-        guard let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
-        let destinationFileUrl = documentsUrl.appendingPathComponent("download.pdf")
-        
-        //Create URL to the source file you want to download
-        let fileURL = URL(string: "http://www.africau.edu/images/default/sample.pdf")
-        
-        let sessionConfig = URLSessionConfiguration.default
-        let session = URLSession(configuration: sessionConfig)
-        
-        let request = URLRequest(url:fileURL!)
-        
-        let task = session.downloadTask(with: request) { (tempLocalUrl, response, error) in
-            if let tempLocalUrl = tempLocalUrl, error == nil {
-                
-                // Success
-                if let statusCode = (response as? HTTPURLResponse)?.statusCode {
-                    print("Successfully downloaded. Status code: \(statusCode)")
-                    do {
-                        try FileManager.default.copyItem(at: tempLocalUrl, to: destinationFileUrl)
-                        self.storePDFLocally()
-                    } catch (let writeError) {
-                        print("Error creating a file \(destinationFileUrl) : \(writeError)")
-                    }
-                    self.storePDFLocally()
-                }
-                
-            } else {
-                print("Error took place while downloading a file.");
-            }
-        }
-        
-        task.resume()
-    }
-    
-    func storePDFLocally() {
-        
-        let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
-        let nsUserDomainMask    = FileManager.SearchPathDomainMask.userDomainMask
-        let paths               = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
-        if let dirPath          = paths.first
-        {
-            let myURL = URL(fileURLWithPath: dirPath).appendingPathComponent("download.pdf")
-            openPDFInViewer(myURL: myURL)
+        if let filePath = Bundle.main.url(forResource: urlString, withExtension: "html") {
+            webView.load(URLRequest(url: filePath))
         }
     }
     
     func openPDFInViewer(myURL: URL) {
-        let pdf = NSData(contentsOf: myURL)
+        guard let pdf = NSData(contentsOf: myURL) else { return}
         
-        //print(pdf?.description ?? "No pdf values here")
-        //print("---------------------------------------")
-        let length = pdf?.length
-        var myArray = [UInt8](repeating: 0, count: length!)
-        pdf?.getBytes(&myArray, length: length!)
-        
-        //print(myArray.description)
-        
+        let length = pdf.length
+        var myArray = [UInt8](repeating: 0, count: length)
+        pdf.getBytes(&myArray, length: length)
+                
         DispatchQueue.main.async {
             self.webView?.evaluateJavaScript("PDFViewerApplication.open(new Uint8Array(\(myArray)))", completionHandler: { result, error in
                 print("Completed Javascript evaluation.")
@@ -129,7 +67,27 @@ class ViewController: UIViewController, WKUIDelegate {
         }
     }
     
-    func renderLocalPDF() {
+    @objc func renderServerPDF() {
+        // Create URL to the source file you want to download
+        guard let fileURL = URL(string: "http://www.africau.edu/images/default/sample.pdf") else { return }
+        
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        
+        let request = URLRequest(url: fileURL)
+        
+        let task = session.downloadTask(with: request) { (tempLocalUrl, response, error) in
+            if let tempLocalUrl = tempLocalUrl, error == nil {
+                self.openPDFInViewer(myURL: tempLocalUrl)
+                
+            } else {
+                print("Error took place while downloading a file.");
+            }
+        }
+        
+        task.resume()
+    }
+    
+    @objc func renderLocalPDF() {
         
         // load the PDF into the viewer after a delay
         let timeDelay = 1.0 // in seconds
@@ -142,11 +100,10 @@ class ViewController: UIViewController, WKUIDelegate {
         //let urlString = "NumberTheoryAndAlgebra"
         //let urlString = "FinancialAccounting"
         
-        if let filePath = Bundle.main.path(forResource: urlString, ofType: "pdf") {
-            print("File \(urlString).pdf exists: \(FileManager().fileExists(atPath: filePath))")
+        if let filePath = Bundle.main.url(forResource: urlString, withExtension: "pdf") {
+            print("File \(urlString).pdf exists: \(FileManager().fileExists(atPath: filePath.path))")
             
-            let myURL = URL(fileURLWithPath: filePath)
-            openPDFInViewer(myURL: myURL)
+            openPDFInViewer(myURL: filePath)
         }
         else {
             print("File \(urlString) doesn't exist")

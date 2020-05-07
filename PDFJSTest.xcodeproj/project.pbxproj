@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		130C5A782463C2590070CA1E /* pdfjs in Resources */ = {isa = PBXBuildFile; fileRef = 130C5A772463C2580070CA1E /* pdfjs */; };
+		130C5A7A2463E29A0070CA1E /* compressed.tracemonkey-pldi-09.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 130C5A792463E2990070CA1E /* compressed.tracemonkey-pldi-09.pdf */; };
+		130C5A7C2463E92B0070CA1E /* pdfjs in Resources */ = {isa = PBXBuildFile; fileRef = 130C5A7B2463E92B0070CA1E /* pdfjs */; };
+		130C5A7E2463EBA50070CA1E /* pdf.js-dist in Resources */ = {isa = PBXBuildFile; fileRef = 130C5A7D2463EBA50070CA1E /* pdf.js-dist */; };
 		520059BC1F702EEC009EAE49 /* NumberTheoryAndAlgebra.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 520059BA1F702EEC009EAE49 /* NumberTheoryAndAlgebra.pdf */; };
 		520059BD1F702EEC009EAE49 /* FinancialAccounting.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 520059BB1F702EEC009EAE49 /* FinancialAccounting.pdf */; };
 		5241C0A91F2926ED00381ED3 /* Linear Regression Using R- An Introduction to Data Modeling.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5241C0A81F2926ED00381ED3 /* Linear Regression Using R- An Introduction to Data Modeling.pdf */; };
-		5260D07C1F279E390050E849 /* compressed.tracemonkey-pldi-09.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5260D07B1F279E390050E849 /* compressed.tracemonkey-pldi-09.pdf */; };
 		52EE7E741F16AB2000429D5A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EE7E731F16AB2000429D5A /* WebKit.framework */; };
 		52F439D81F1585A20063DCF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F439D71F1585A20063DCF2 /* AppDelegate.swift */; };
 		52F439DA1F1585A20063DCF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F439D91F1585A20063DCF2 /* ViewController.swift */; };
@@ -21,11 +22,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		130C5A772463C2580070CA1E /* pdfjs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = pdfjs; sourceTree = "<group>"; };
+		130C5A792463E2990070CA1E /* compressed.tracemonkey-pldi-09.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "compressed.tracemonkey-pldi-09.pdf"; sourceTree = "<group>"; };
+		130C5A7B2463E92B0070CA1E /* pdfjs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = pdfjs; sourceTree = "<group>"; };
+		130C5A7D2463EBA50070CA1E /* pdf.js-dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "pdf.js-dist"; sourceTree = "<group>"; };
 		520059BA1F702EEC009EAE49 /* NumberTheoryAndAlgebra.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = NumberTheoryAndAlgebra.pdf; sourceTree = "<group>"; };
 		520059BB1F702EEC009EAE49 /* FinancialAccounting.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = FinancialAccounting.pdf; sourceTree = "<group>"; };
 		5241C0A81F2926ED00381ED3 /* Linear Regression Using R- An Introduction to Data Modeling.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Linear Regression Using R- An Introduction to Data Modeling.pdf"; sourceTree = "<group>"; };
-		5260D07B1F279E390050E849 /* compressed.tracemonkey-pldi-09.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "compressed.tracemonkey-pldi-09.pdf"; path = "web/compressed.tracemonkey-pldi-09.pdf"; sourceTree = "<group>"; };
 		52EE7E731F16AB2000429D5A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		52F439D41F1585A20063DCF2 /* PDFJSTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PDFJSTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F439D71F1585A20063DCF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,11 +78,12 @@
 		52F439D61F1585A20063DCF2 /* PDFJSTest */ = {
 			isa = PBXGroup;
 			children = (
-				130C5A772463C2580070CA1E /* pdfjs */,
+				130C5A7D2463EBA50070CA1E /* pdf.js-dist */,
+				130C5A7B2463E92B0070CA1E /* pdfjs */,
 				520059BA1F702EEC009EAE49 /* NumberTheoryAndAlgebra.pdf */,
 				520059BB1F702EEC009EAE49 /* FinancialAccounting.pdf */,
 				5241C0A81F2926ED00381ED3 /* Linear Regression Using R- An Introduction to Data Modeling.pdf */,
-				5260D07B1F279E390050E849 /* compressed.tracemonkey-pldi-09.pdf */,
+				130C5A792463E2990070CA1E /* compressed.tracemonkey-pldi-09.pdf */,
 				52F439D71F1585A20063DCF2 /* AppDelegate.swift */,
 				52F439D91F1585A20063DCF2 /* ViewController.swift */,
 				52F439DB1F1585A20063DCF2 /* Main.storyboard */,
@@ -123,7 +126,7 @@
 				TargetAttributes = {
 					52F439D31F1585A20063DCF2 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = K97KHP3ZWG;
+						DevelopmentTeam = 2YPD3Z2H74;
 						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 					};
@@ -155,12 +158,13 @@
 			files = (
 				52F439E21F1585A20063DCF2 /* LaunchScreen.storyboard in Resources */,
 				520059BD1F702EEC009EAE49 /* FinancialAccounting.pdf in Resources */,
-				5260D07C1F279E390050E849 /* compressed.tracemonkey-pldi-09.pdf in Resources */,
 				520059BC1F702EEC009EAE49 /* NumberTheoryAndAlgebra.pdf in Resources */,
-				130C5A782463C2590070CA1E /* pdfjs in Resources */,
+				130C5A7E2463EBA50070CA1E /* pdf.js-dist in Resources */,
 				5241C0A91F2926ED00381ED3 /* Linear Regression Using R- An Introduction to Data Modeling.pdf in Resources */,
+				130C5A7C2463E92B0070CA1E /* pdfjs in Resources */,
 				52F439DF1F1585A20063DCF2 /* Assets.xcassets in Resources */,
 				52F439DD1F1585A20063DCF2 /* Main.storyboard in Resources */,
+				130C5A7A2463E29A0070CA1E /* compressed.tracemonkey-pldi-09.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,7 +299,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = K97KHP3ZWG;
+				DEVELOPMENT_TEAM = 2YPD3Z2H74;
 				INFOPLIST_FILE = PDFJSTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunfishempire.PDFJSTest;
@@ -308,7 +312,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = K97KHP3ZWG;
+				DEVELOPMENT_TEAM = 2YPD3Z2H74;
 				INFOPLIST_FILE = PDFJSTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunfishempire.PDFJSTest;
