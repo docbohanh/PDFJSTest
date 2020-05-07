@@ -40,7 +40,8 @@ class ViewController: UIViewController, WKUIDelegate {
     }
     
     func loadPDFViewer() {
-        let urlString = "pdf.js-dist/web/viewer"
+        let urlString = "pdf.js-dist/web/viewer" // PDFjs v1.8.557
+//        let urlString = "pdfjs/web/viewer" // PDFjs v2.3.200
         
         let filePath = Bundle.main.resourceURL?.appendingPathComponent("\(urlString).html").path
         print("File \(urlString).html exists: \(FileManager().fileExists(atPath: filePath!))")
@@ -88,20 +89,17 @@ class ViewController: UIViewController, WKUIDelegate {
     }
     
     @objc func renderLocalPDF() {
-        
-        // load the PDF into the viewer after a delay
-        let timeDelay = 1.0 // in seconds
-        Timer.scheduledTimer(timeInterval: timeDelay, target: self, selector: #selector(self.getLocalPDF), userInfo: nil, repeats: false)
-    }
-    
-    @objc func getLocalPDF() {
         let urlString = "compressed.tracemonkey-pldi-09"
-        //let urlString = "Linear Regression Using R- An Introduction to Data Modeling"
-        //let urlString = "NumberTheoryAndAlgebra"
-        //let urlString = "FinancialAccounting"
+        let urlString2 = "Linear Regression Using R- An Introduction to Data Modeling"
+        let urlString3 = "NumberTheoryAndAlgebra"
+        let urlString4 = "FinancialAccounting"
         
-        if let filePath = Bundle.main.url(forResource: urlString, withExtension: "pdf") {
-            print("File \(urlString).pdf exists: \(FileManager().fileExists(atPath: filePath.path))")
+        let localPDFs = [urlString, urlString2, urlString3, urlString4]
+        let rand = Int.random(in: 0...3)
+        let testPDF = localPDFs[rand]
+        
+        if let filePath = Bundle.main.url(forResource: testPDF, withExtension: "pdf") {
+            print("File \(testPDF).pdf exists: \(FileManager().fileExists(atPath: filePath.path))")
             
             openPDFInViewer(myURL: filePath)
         }
